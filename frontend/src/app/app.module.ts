@@ -9,10 +9,6 @@ import { HeaderComponent } from './templates/header/header.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 
-import { ListarProdutosComponent } from './components/produtos/listar-produtos/listar-produtos.component';
-import { CadastrarProdutoComponent } from './components/produtos/cadastrar-produto/cadastrar-produto.component';
-import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component';
-
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -26,15 +22,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    ListarProdutosComponent,
-    CadastrarProdutoComponent,
-    AtualizarProdutoComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

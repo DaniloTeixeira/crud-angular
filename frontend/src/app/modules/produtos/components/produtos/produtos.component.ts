@@ -1,16 +1,16 @@
-import { ProdutosService } from './../../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
-import { IProduto } from 'src/app/model/IProduto.module';
 
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { IProduto, Produto } from '../../models/Produto';
+import { ProdutosService } from '../../services/produtos';
 
 @Component({
-  selector: 'app-listar-produtos',
-  templateUrl: './listar-produtos.component.html',
-  styleUrls: ['./listar-produtos.component.css'],
+  selector: 'app-produtos',
+  templateUrl: './produtos.component.html',
+  styleUrls: ['./produtos.component.css'],
 })
-export class ListarProdutosComponent implements OnInit {
-  listaProdutos: IProduto[] = [];
+export class ProdutosComponent implements OnInit {
+  listaProdutos: Produto[] = [];
 
   constructor(private produtosService: ProdutosService) {}
 
@@ -21,10 +21,11 @@ export class ListarProdutosComponent implements OnInit {
   carregarProdutos(): void {
     this.produtosService.buscarTodos().subscribe((retorno) => {
       this.listaProdutos = retorno;
+      console.log(retorno);
     });
   }
 
-  deletar(produto: IProduto): void {
+  deletar(produto: Produto): void {
     this.produtosService.deletarProduto(produto.id).subscribe(() => {
       this.produtosService.exibirMsgDeErro(
         'SISTEMA',
@@ -34,7 +35,7 @@ export class ListarProdutosComponent implements OnInit {
     });
   }
 
-  alertaDeExclusao(produto: IProduto) {
+  alertaDeExclusao(produto: Produto) {
     Swal.fire({
       title: 'ATENÇÃO!',
       text: `Esta ação é irreversível, deseja realmente excluir o produto ${produto.nome}?`,

@@ -1,7 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProdutosService } from './../../../services/produtos.service';
-import { IProduto } from 'src/app/model/IProduto.module';
+
 import { Component, OnInit } from '@angular/core';
+import { ProdutosService } from '../../services/produtos';
+import { IProduto, Produto } from '../../models/Produto';
 
 @Component({
   selector: 'app-atualizar-produto',
@@ -9,11 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./atualizar-produto.component.css'],
 })
 export class AtualizarProdutoComponent implements OnInit {
-  produto: IProduto = {
-    nome: '',
-    validade: '',
-    valor: 0,
-  };
+  produto: Produto;
 
   constructor(
     private produtosService: ProdutosService,
@@ -36,13 +33,13 @@ export class AtualizarProdutoComponent implements OnInit {
         `${this.produto.nome} foi atualizado com sucesso. ${this.produto.id}`,
         'toast-success'
       );
-      this.router.navigate(['/produtos/listar']);
+      this.router.navigate(['/produtos']);
     });
   }
 
   limparCampos(): void {
     this.produto.nome = '';
-    this.produto.validade = '';
+    // this.produto.validade = '';
     this.produto.valor = 0;
   }
 }

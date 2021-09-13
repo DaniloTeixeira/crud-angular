@@ -4,7 +4,6 @@
       "id": 1,
       "nome": "Curso de Angular",
       "validade": "2021-12-31",
-      "preco": 99.5,
       "valor": 109.9
     },
     {
@@ -14,16 +13,16 @@
       "id": 2
     },
     {
-      "nome": "Curso de Javascript",
-      "validade": "2021-11-13",
-      "valor": 80,
-      "id": 3
+      "nome": "TESTE",
+      "validade": "2021-09-02T03:00:00.000Z",
+      "valor": 10,
+      "id": 4
     },
     {
-      "nome": "Curso de Typescript",
-      "validade": "2021-12-10",
-      "valor": 100,
-      "id": 4
+      "nome": "teste2",
+      "validade": "2021-09-16T03:00:00.000Z",
+      "valor": 500,
+      "id": 5
     }
   ]
 }

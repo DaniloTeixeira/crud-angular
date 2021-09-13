@@ -1,41 +1,40 @@
-import { IProduto } from './../model/IProduto.module';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { mapToClasses } from 'src/app/utils/custom-operators';
+import { Produto } from '../../models/Produto';
+import { CadastrarProdutoRequest } from '../../models/CadastrarProdutoRequest';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProdutosService {
   private URL = 'http://localhost:3000/produtos';
 
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-  buscarTodos(): Observable<IProduto[]> {
-    return this.http.get<IProduto[]>(this.URL).pipe(
+  buscarTodos(): Observable<Produto[]> {
+    return this.http.get(this.URL).pipe(
+      mapToClasses(Produto),
+      catchError((erro) => this.exibeErro(erro))
+    );
+  }
+
+  cadastrarProduto(produto: CadastrarProdutoRequest): Observable<any> {
+    return this.http
+      .post(this.URL, produto)
+      .pipe(catchError((erro) => this.exibeErro(erro)));
+  }
+
+  buscarProdutoPorId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.URL}/${id}`).pipe(
       map((retorno) => retorno),
       catchError((erro) => this.exibeErro(erro))
     );
   }
 
-  cadastrarProduto(produto: IProduto): Observable<IProduto> {
-    return this.http.post<IProduto>(this.URL, produto).pipe(
-      map((retorno) => retorno),
-      catchError((erro) => this.exibeErro(erro))
-    );
-  }
-
-  buscarProdutoPorId(id: number): Observable<IProduto> {
-    return this.http.get<IProduto>(`${this.URL}/${id}`).pipe(
-      map((retorno) => retorno),
-      catchError((erro) => this.exibeErro(erro))
-    );
-  }
-
-  atualizarProduto(produto: IProduto): Observable<IProduto> {
-    return this.http.put<IProduto>(`${this.URL}/${produto.id}`, produto).pipe(
+  atualizarProduto(produto: any): Observable<any> {
+    return this.http.put<any>(`${this.URL}/${produto.id}`, produto).pipe(
       map((retorno) => retorno),
       catchError((erro) => this.exibeErro(erro))
     );

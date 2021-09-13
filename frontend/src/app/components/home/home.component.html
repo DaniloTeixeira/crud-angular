@@ -19,7 +19,13 @@
   </div>
 </div>
 
-<app-card-produto>
-  [fotoCard]="fotoCard" [nomeProduto]="nomeProduto" [promocao]="promocao"
-  [validade]="validade" [idProduto]="idProduto" [preco]="preco"
+<app-card-produto
+  *ngFor="let produto of produtos"
+  [fotoCard]="produto.fotoCard"
+  [nomeProduto]="produto.nomeProduto"
+  [promocao]="produto.promocao"
+  [validade]="produto.validade"
+  [idProduto]="produto.idProduto"
+  [preco]="produto.preco"
+>
 </app-card-produto>

@@ -8,16 +8,26 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   msgBoasVindas = 'Seja Bem Vindo!';
 
-  nomeProduto = 'Curso de Angular';
-  idProduto = 1;
-  preco = 99.90511111;
-  promocao = false;
-  fotoCard = 'assets/img/logo-header.png';
-  validade = '2021-12-31';
+  produtos: any = [
+    {
+      nomeProduto: 'Curso de Angular',
+      idProduto: 1,
+      preco: 99.90511111,
+      promocao: true,
+      fotoCard: 'assets/img/logo-header.png',
+      validade: '2021-12-31',
+    },
+    {
+      nomeProduto: 'Curso de Vue',
+      idProduto: 2,
+      preco: 69.90511111,
+      promocao: false,
+      fotoCard: 'assets/img/logo-header.png',
+      validade: '2021-11-31',
+    },
+  ];
 
-  constructor() {
-    console.log(`Nome do produto: ${this.nomeProduto}`);
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
