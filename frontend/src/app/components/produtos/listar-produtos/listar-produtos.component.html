@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col md-6">
+      <h1 class="my-3 ml-5 text-primary">Lista de produtos</h1>
+    </div>
+    <div class="col md-6">
+      <h3 class="my-3 mr-5">
+        <button
+          class="btn btn-success float-right"
+          routerLink="/produtos/cadastrar"
+        >
+          Cadastrar produto
+        </button>
+      </h3>
+    </div>
+  </div>
+  <div class="card shadow">
+    <table class="table table-responsive table-striped table-dark">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Validade</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of listaProdutos">
+          <td>{{ produto.id }}</td>
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.validade | date: "shortDate" }}</td>
+          <td>{{ produto.valor | currency: "BRL" }}</td>
+          <td>
+            <button
+              class="btn btn-warning mr-3"
+              routerLink="/produtos/atualizar/{{ produto.id }}"
+            >
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-danger" (click)="alertaDeExclusao(produto)">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
