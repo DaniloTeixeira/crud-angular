@@ -1,0 +1,29 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Curso de Angular",
+      "validade": "2021-12-31",
+      "preco": 99.5,
+      "valor": 109.9
+    },
+    {
+      "nome": "Curso de PHP",
+      "validade": "2021-09-23",
+      "valor": 50,
+      "id": 2
+    },
+    {
+      "nome": "Curso de Javascript",
+      "validade": "2021-11-13",
+      "valor": 80,
+      "id": 3
+    },
+    {
+      "nome": "Curso de Typescript",
+      "validade": "2021-12-10",
+      "valor": 100,
+      "id": 4
+    }
+  ]
+}
