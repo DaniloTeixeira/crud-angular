@@ -1,45 +1,49 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient py-3">
-  <img src="assets/img/logo-header.png" width="50px" class="ml-5" />
-  <strong class="text-white mr-5 ml-1">CRUD Angular</strong>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#conteudoNavbarSuportado"
-    aria-controls="conteudoNavbarSuportado"
-    aria-expanded="false"
-    aria-label="Alterna navegação"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient py-3">
+    <img src="assets/img/logo-header.png" width="50px" class="ml-5" />
+    <strong class="text-white mr-5 ml-1">CRUD Angular</strong>
+    <button
+      class="navbar-toggler fixed-top"
+      type="button"
+      data-toggle="collapse"
+      data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado"
+      aria-expanded="false"
+      aria-label="Alterna navegação"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link text-primary" routerLink="/">Home</a>
-      </li>
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-primary" routerLink="/">Home</a>
+        </li>
 
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle text-primary"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Produtos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-primary" routerLink="/produtos"
-            >Lista de Produtos</a
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-primary"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
           >
-          <a class="dropdown-item text-primary" routerLink="/produtos/cadastrar"
-            >Cadastro de Produto</a
-          >
-          <div class="dropdown-divider"></div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+            Produtos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text-primary" routerLink="/produtos"
+              >Lista de Produtos</a
+            >
+            <a
+              class="dropdown-item text-primary"
+              routerLink="/produtos/cadastrar"
+              >Cadastro de Produto</a
+            >
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

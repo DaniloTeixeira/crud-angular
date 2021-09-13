@@ -1,40 +1,45 @@
 <!-- TIPOS DE PROPERTY BINDING -->
-<div class="container mx-5">
+<div class="container">
   <div class="row">
-    <div class="card" style="width: 20rem">
-      <!-- Property binding  => []="" -->
-      <img class="card-img-top w-50 mx-auto" [src]="fotoCard" />
-      <div class="card-body">
-        <!-- Interpolation => {{}} -->
-        <h3 class="card-title text-center">
-          {{ nomeProduto }}
-        </h3>
-        <br />
-        <!-- diretiva ngIf => *ngIf="" -->
-        <span class="badge badge-success" *ngIf="promocao; else blocoElse">
-          Promoção
-        </span>
-        <!-- Diretiza utilizada para exibir a variável (validadePromocao), apenas se a variável (promocao) for true  -->
-        <!-- Em seguida, PIPE utilizado para formatar o estilo de exibição da data -->
-        <p class="card-text text-danger" *ngIf="promocao">
-          Promoção válida até: {{ validade | date: "dd/MM/yyyy" }}
-        </p>
-        <!-- #else só será executado se a condição acima retornar false -->
-        <ng-template #blocoElse>
-          <span class="badge badge-success">Aproveite</span>
-        </ng-template>
+    <div class="col-md-4 text-center">
+      <div class="card" style="width: 20rem">
+        <!-- Property binding  => []="" -->
+        <img class="card-img-top w-50 mx-auto" [src]="fotoCard" />
+        <div class="card-body">
+          <!-- Interpolation => {{}} -->
+          <h3 class="card-title text-center">
+            {{ nomeProduto }}
+          </h3>
+          <br />
+          <!-- diretiva ngIf => *ngIf="" -->
+          <span
+            class="badge badge-success p-2"
+            *ngIf="promocao; else blocoElse"
+          >
+            Promoção
+          </span>
+          <!-- Diretiza utilizada para exibir a variável (validadePromocao), apenas se a variável (promocao) for true  -->
+          <!-- Em seguida, PIPE utilizado para formatar o estilo de exibição da data -->
+          <p class="card-text text-danger" *ngIf="promocao">
+            Promoção válida até: {{ validade | date: "dd/MM/yyyy" }}
+          </p>
+          <!-- #else só será executado se a condição acima retornar false -->
+          <ng-template #blocoElse>
+            <span class="badge badge-primary p-2"> Aproveite </span>
+          </ng-template>
 
-        <!-- Interpolation => {{}} -->
-        <p class="card-text">Id do produto: {{ idProduto }}</p>
-        <a class="btn btn-primary d-block text-white">
-          <!-- Uso do PIPE para definir:
+          <!-- Interpolation => {{}} -->
+          <p class="card-text">Id do produto: {{ idProduto }}</p>
+          <a class="btn btn-primary d-block text-white">
+            <!-- Uso do PIPE para definir:
                - quantidade de dígitos inteiros mínimos
                - quantidade mínima de decimais
                - quantidade máxima de decimais, respectivamente -> number:" 2,2-2"-->
-          Preço:
-          <!-- PIPE utilizado  para formatar valores monetários -->
-          {{ preco | currency: "BRL" }}
-        </a>
+            Preço:
+            <!-- PIPE utilizado  para formatar valores monetários -->
+            {{ preco | currency: "BRL" }}
+          </a>
+        </div>
       </div>
     </div>
   </div>

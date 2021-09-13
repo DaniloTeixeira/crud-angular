@@ -1,16 +1,9 @@
-<div class="container-fluid">
+<div class="container">
   <!-- Uso do PIPE para transformar a variável msgBoasVindas em strging com letras maiúsculas -->
   <h1 class="text-center my-1 text-primary">{{ msgBoasVindas | uppercase }}</h1>
-  <div class="row m-2">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-body">
-          <img src="assets/img/angular-logo.png" class="img-fluid rounded" />
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 bg-dark">
-      <div class="card">
+  <div class="row m-2 d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card bg-dark">
         <div class="card-body">
           <img src="assets/img/crud-img.jpg" class="img-fluid rounded" />
         </div>
@@ -18,14 +11,15 @@
     </div>
   </div>
 </div>
-
-<app-card-produto
-  *ngFor="let produto of produtos"
-  [fotoCard]="produto.fotoCard"
-  [nomeProduto]="produto.nomeProduto"
-  [promocao]="produto.promocao"
-  [validade]="produto.validade"
-  [idProduto]="produto.idProduto"
-  [preco]="produto.preco"
->
-</app-card-produto>
+<div class="d-flex justify-content-center my-5">
+  <app-card-produto
+    *ngFor="let produto of produtos"
+    [fotoCard]="produto.fotoCard"
+    [nomeProduto]="produto.nomeProduto"
+    [promocao]="produto.promocao"
+    [validade]="produto.validade"
+    [idProduto]="produto.idProduto"
+    [preco]="produto.preco"
+  >
+  </app-card-produto>
+</div>

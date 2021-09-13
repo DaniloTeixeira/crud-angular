@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  msgBoasVindas = 'Seja Bem Vindo!';
+  msgBoasVindas = 'seja bem vindo!';
 
   produtos: any = [
     {
@@ -22,8 +22,16 @@ export class HomeComponent implements OnInit {
       idProduto: 2,
       preco: 69.90511111,
       promocao: false,
-      fotoCard: 'assets/img/logo-header.png',
+      fotoCard: 'assets/img/logo-vue.png',
       validade: '2021-11-31',
+    },
+    {
+      nomeProduto: 'Curso de React',
+      idProduto: 3,
+      preco: 89.90511111,
+      promocao: true,
+      fotoCard: 'assets/img/react-logo.png',
+      validade: '2021-10-31',
     },
   ];
 
