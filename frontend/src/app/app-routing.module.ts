@@ -11,6 +11,7 @@ const routes: Routes = [
         (m) => m.ProdutosModule
       ),
   },
+  { path: 'vendas', loadChildren: () => import('./modules/vendas/vendas.module').then(m => m.VendasModule) },
 ];
 
 @NgModule({
